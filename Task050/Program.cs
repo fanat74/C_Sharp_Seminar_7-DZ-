@@ -15,8 +15,8 @@ int posColumnMatrix = Convert.ToInt32(Console.ReadLine());
 
 int[,] array2D = CreateMatrixRndInt(3, 4, -10, 10);
 PrintMatrix(array2D);
-int check = CheckIndexMatrix(array2D, posRawMatrix, posColumnMatrix);
-Console.WriteLine($"Элемент двухмерного массива с индексом [{posRawMatrix}, {posColumnMatrix}] равен {check}");
+bool check = CheckIndexMatrix(array2D, posRawMatrix, posColumnMatrix);
+Console.WriteLine(check ? $"Элемент двухмерного массива с индексом [{posRawMatrix}, {posColumnMatrix}] равен {check}" : "Нет такого элемента в массиве");
 
 int[,] CreateMatrixRndInt(int raws, int columns, int min, int max)
 {
@@ -47,20 +47,15 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int CheckIndexMatrix(int[,] matrix, int x, int y)
+bool CheckIndexMatrix(int[,] matrix, int x, int y)
 {
-    if (x > 3 && y > 4)
-    Console.Write("Такого элемента в массиве нет");
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
+    if (x > matrix.GetLength(0) || y > matrix.GetLength(1))
+        return false;
+    else
+        return true;
 
-        }
-    }
-    return matrix[x, y];
 }
 
 
-//не корректно выводит данные в случае выхода индекса за пределы массива
-    
+
+
