@@ -16,7 +16,7 @@ int posColumnMatrix = Convert.ToInt32(Console.ReadLine());
 int[,] array2D = CreateMatrixRndInt(3, 4, -10, 10);
 PrintMatrix(array2D);
 bool check = CheckIndexMatrix(array2D, posRawMatrix, posColumnMatrix);
-Console.WriteLine(check ? $"Элемент двухмерного массива с индексом [{posRawMatrix}, {posColumnMatrix}] равен {check}" : "Нет такого элемента в массиве");
+Console.WriteLine(check ? $"Элемент двухмерного массива с индексом [{posRawMatrix}, {posColumnMatrix}] равен {array2D[posRawMatrix, posColumnMatrix]}" : "Нет такого элемента в массиве");
 
 int[,] CreateMatrixRndInt(int raws, int columns, int min, int max)
 {
@@ -53,9 +53,4 @@ bool CheckIndexMatrix(int[,] matrix, int x, int y)
         return false;
     else
         return true;
-
 }
-
-
-
-
